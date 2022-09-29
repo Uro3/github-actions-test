@@ -2,11 +2,14 @@ name: Environment-test
 
 on:
   workflow_dispatch:
+    inputs:
+      env:
+        default: 'production'
 
 jobs:
   hoge:
     runs-on: ubuntu-latest
-    environment: production
+    environment: ${{ inputs.env }}
     env:
       TEST: ${{ secrets.TEST }}
     steps:
