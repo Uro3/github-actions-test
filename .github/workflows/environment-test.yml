@@ -1,0 +1,15 @@
+name: Environment-test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  hoge:
+    runs-on: ubuntu-latest
+    environment: production
+    env:
+      TEST: ${{ secrets.TEST }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run a one-line script
+        run: echo Hello ${TEST}
