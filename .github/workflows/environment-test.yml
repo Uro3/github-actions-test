@@ -9,14 +9,14 @@ on:
 jobs:
   hoge:
     runs-on: ubuntu-latest
-    environment: production
+    environment: development
     env:
       TEST: ${{ secrets.TEST }}
     steps:
       - uses: actions/checkout@v3
-      - name: test step hoge
+      - name: test1
         if:  ${{ env.TEST == 'hoge' }}
-        run: echo Hello hoge
-      - name: test step fuga
+        run: echo 'Hello1'
+      - name: test2
         if:  ${{ env.TEST == 'fuga' }}
-        run: echo Hello fuga
+        run: echo 'Hello2'
