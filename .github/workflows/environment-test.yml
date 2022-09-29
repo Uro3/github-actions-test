@@ -9,7 +9,7 @@ on:
 jobs:
   hoge:
     runs-on: ubuntu-latest
-    environment: development
+    environment: ${{ inputs.env }}
     env:
       TEST: ${{ secrets.TEST }}
     steps:
