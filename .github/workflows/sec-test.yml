@@ -1,0 +1,24 @@
+name: Sec-test
+
+on:
+  workflow_dispatch:
+    inputs:
+      env:
+        default: 'production'
+
+jobs:
+  hoge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set variables
+        id: variables
+        run: |
+          if [ ${{ inputs.env }} = "production" ]; then
+            TEST="hoge"
+          else
+            TEST="fuga"
+          fi
+          echo "::set-output name=test::${TEST}"
+      - name: test
+        run: echo "${test}"
