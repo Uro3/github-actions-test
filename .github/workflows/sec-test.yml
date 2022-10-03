@@ -21,4 +21,4 @@ jobs:
           fi
           echo "::set-output name=test::${TEST}"
       - name: test
-        run: echo "${{ steps.variables.outputs.env }}"
+        run: echo "${{ steps.variables.outputs.test }}"
