@@ -20,5 +20,11 @@ jobs:
             TEST="fuga"
           fi
           echo "::set-output name=test::${TEST}"
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: p1
+          aws-secret-access-key: p2
+          aws-region: p3
       - name: test
         run: echo "${{ steps.variables.outputs.test }}"
